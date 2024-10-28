@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Benefits } from "../components/benefits";
-
+import  About  from '../components/About'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,6 +17,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className="">
+          <About/>
+          {/* <Benefits/> */}
         {children}
       </body>
     </html>
