@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Benefits } from "../components/benefits";
 import  About  from '../components/About'
-import Slider from '../components/Slider'
+import Slider from '../components/Mentors'
 import Accordian from '../components/Accordian'
+import Placements from '../components/Placements'
+import CareerSupport from '../components/CareerSupport'
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,8 +21,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className="">
-          <Slider/>
-          <Accordian/>
+          {/* <Slider/> */}
+          {/* <Placements/> */}
+          <CareerSupport/>
+          {/* <Accordian/> */}
         {children}
       </body>
     </html>

@@ -1,9 +1,7 @@
-// components/Slider.js
 'use client'
-// components/Slider.js
 import { useState } from 'react';
 
-export default function Slider() {
+export default function Mentors() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
@@ -20,7 +18,15 @@ export default function Slider() {
       image: '/path-to-jai-image.jpg',
       testimonial:
         'With the course and the projects that we undertook, it brought in a lot of discipline in me to continue working and upskilling at the same time.',
+    }, 
+    {
+      name: 'Jai Arora',
+      role: 'Director of Engineering, Adidas',
+      image: '/path-to-jai-image.jpg',
+      testimonial:
+        'With the course and the projects that we undertook, it brought in a lot of discipline in me to continue working and upskilling at the same time.',
     },
+  
     // Add more slides as needed
   ];
 
@@ -33,16 +39,16 @@ export default function Slider() {
   };
 
   return (
-    <div className="w-full py-10">
+    <div className="w-full py-10 flex flex-col justify-center items-center">
       <h2 className="text-center text-2xl font-semibold mb-6">Learner Testimonials</h2>
       <div className="relative w-full overflow-hidden border ">
         {/* Slider Container */}
         <div
-          className="flex transition-transform duration-500"
+          className="flex transition-transform duration-500 border border-black"
           style={{ transform: `translateX(-${currentSlide * 100}%)` }}
         >
           {slides.map((slide, index) => (
-            <div key={index} className="flex-shrink-0 border border-black" style={{ width: '632px', height: '100%' }}>
+            <div key={index} className="flex-shrink-0 border " style={{ width: '632px', height: '100%' }}>
               <div className="bg-white shadow-md rounded-lg p-6" style={{ width: '632px', height: '600px' }}>
                 {/* Video Div */}
                 <div className="relative mb-4">
