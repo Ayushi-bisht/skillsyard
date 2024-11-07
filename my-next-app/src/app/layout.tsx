@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Benefits } from "../components/benefits";
-import  About  from '../components/About'
-import Slider from '../components/Mentors'
+import Benefits from "../components/benefits";
+import About from '../components/About'
+import Slider from '../components/Testimonials'
 import Accordian from '../components/Accordian'
 import Placements from '../components/Placements'
 import CareerSupport from '../components/CareerSupport'
+import Mentors from '../components/Mentors'
+import Certificate from "../components/Certificate";
+import Testimonials from "../components/Testimonials";
+import  Languages  from "../components/languages&tool";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,10 +25,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className="">
-          {/* <Slider/> */}
-          {/* <Placements/> */}
-          <CareerSupport/>
-          {/* <Accordian/> */}
+     <Benefits/>
+        <Languages/>
+
         {children}
       </body>
     </html>
