@@ -31,7 +31,7 @@ export default function About() {
 
     return (
         <>
-            <div className="learning-ai-about-main flex flex-col justify-center items-center gap-14 mt-28 *:">
+            <div className="learning-ai-about-main flex flex-col justify-center items-center gap-14 mt-16">
                 <div className="flex flex-col gap-2 justify-center items-center">
                     <h1 className="text-[32px] leading-[40px] font-bold">Get a 360° understanding of AI and Machine Learning</h1>
                     <p className="text-[#444] text-[15px]">Masterclasses delivered by distinguished UT Austin faculty</p>

@@ -26,9 +26,12 @@ export default function RootLayout({
     <html lang="en">
       <body
         className="">
-        {/* <Tools />
-<About/> */}
-<Curriculum/>
+        <About />
+        <Placements/>
+        <Benefits/>
+        <Certificate/>
+        <Curriculum/>
+        <Mentors/>
         {children}
       </body>
     </html>

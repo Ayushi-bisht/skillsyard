@@ -9,7 +9,7 @@ export default function Placements() {
     const user = './user-icon.svg'
     return (
         <>
-            <div className="skillsyard-placements-main flex flex-col justify-center items-center gap-8 ">
+            <div className="skillsyard-placements-main flex flex-col justify-center items-center gap-8 mt-16">
                 <div className="flex justify-center items-center relative">
                     <button className=" absolute -left-6 h-[50px] w-[50px] rounded-full bg-white text-black shadow-md text-2xl font-bold"> {btn} </button>
                     <div className="skillsyard-placement-slider flex gap-[10px] py-4 px-2  max-w-[1660px] overflow-hidden ">

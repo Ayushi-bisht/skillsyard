@@ -52,7 +52,7 @@ export default function Mentors() {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center gap-3">
+      <div className="flex flex-col justify-center items-center gap-3 mt-28">
         <h1 className="text-[32px] leading-[40px] font-bold">Faculty and Mentors</h1>
         <p className="text-[#444] text-[20px] max-w-[900px] text-center">
           Learn from leading academicians in the field of Artificial Intelligence and Machine Learning and several experienced industry practitioners from top organisations.

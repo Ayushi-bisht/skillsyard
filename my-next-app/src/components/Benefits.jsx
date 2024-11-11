@@ -19,7 +19,7 @@ export default function Benefits() {
                 <div className="learning-ai-benefits-card-cont flex flex-col justify-center items-center gap-10">
                 {
                     card.map((value,index)=>(
-                        <div className="learning-ai-benefits-card flex  w-fit gap-8" key={index}>
+                        <div className="learning-ai-benefits-card flex w-fit gap-8" key={index} >
                             {
                                 value.head.map((items,indes)=>(
                                     <div className="flex border border-gray-300 rounded-md gap-12 w-fit p-7" key={indes}>
