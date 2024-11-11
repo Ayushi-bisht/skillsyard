@@ -9,7 +9,8 @@ import CareerSupport from '../components/CareerSupport'
 import Mentors from '../components/Mentors'
 import Certificate from "../components/Certificate";
 import Testimonials from "../components/Testimonials";
-import  Languages  from "../components/languages&tool";
+import Tools from "../components/tools";
+import Curriculum from "../components/Curriculum";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,9 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         className="">
-     <Benefits/>
-        <Languages/>
-
+        {/* <Tools />
+<About/> */}
+<Curriculum/>
         {children}
       </body>
     </html>
