@@ -3,14 +3,13 @@ import "./globals.css";
 import Benefits from "../components/benefits";
 import About from '../components/About'
 import Slider from '../components/Testimonials'
-import Accordian from '../components/Accordian'
 import Placements from '../components/Placements'
 import CareerSupport from '../components/CareerSupport'
 import Mentors from '../components/Mentors'
 import Certificate from "../components/Certificate";
 import Testimonials from "../components/Testimonials";
 import Tools from "../components/tools";
-import Curriculum from "../components/Curriculum";
+import Faqs from "../components/Faqs";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,9 +27,10 @@ export default function RootLayout({
         className="">
         <About />
         <Placements/>
-        <Benefits/>
+        <CareerSupport/>
         <Certificate/>
-        <Curriculum/>
+<Benefits/>
+        <Faqs/>
         <Mentors/>
         {children}
       </body>

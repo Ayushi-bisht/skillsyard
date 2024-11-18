@@ -1,6 +1,8 @@
 // components/Slider.js
-'use client'
-import { useState } from 'react';
+'use client';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/splide/css'; // Import default styles for Splide
+import Image from 'next/image';
 
 const cardData = [
   {
@@ -35,80 +37,99 @@ const cardData = [
   },
 ];
 
-export default function Mentors() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex((prevIndex) => prevIndex - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentIndex < cardData.length - 3) {
-      setCurrentIndex((prevIndex) => prevIndex + 1);
-    }
-  };
-
+export default function Slider() {
   return (
-    <>
-      <div className="flex flex-col justify-center items-center gap-3 mt-28">
-        <h1 className="text-[32px] leading-[40px] font-bold">Faculty and Mentors</h1>
-        <p className="text-[#444] text-[20px] max-w-[900px] text-center">
-          Learn from leading academicians in the field of Artificial Intelligence and Machine Learning and several experienced industry practitioners from top organisations.
-        </p>
-        <div className="w-full flex flex-col items-center">
-          <div className="relative w-full max-w-4xl overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100 / 3}%)` }}
-            >
-              {cardData.map((card, index) => (
-                <div key={index} className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 p-4">
-                  <div className="bg-white rounded-lg shadow-md overflow-hidden px-4 py-5 min-h-60 flex flex-col justify-between">
-                    <div className="flex justify-start items-center gap-7 mb-4">
-                      <img src={card.image} alt={card.title} className="w-14 h-14 object-cover" />
-                      <h3 className="text-xl font-semibold">{card.title}</h3>
-                    </div>
-                    <div className="flex flex-col justify-start items-start mb-auto">
-                      <p className="mentors-description text-gray-500">{card.description}</p>
-                    </div>
-                    {/* Positioning image at the bottom with varying gap */}
-                    <div className="relative mt-4">
-                      <img
-                        src={card.image2}
-                        alt=""
-                        className="mentors-description-images absolute bottom-0 left-0 right-0"
-                        style={{
-                          marginTop: `${(index + 1) * 10}px`, // Adjust gap for each card
-                        }}
-                      />
-                    </div>
-                  </div>
+    <div className="flex flex-col justify-center items-center gap-3 mt-1">
+      {/* Heading */}
+      <h1
+        style={{
+          fontSize: 'var(--h1-size)',
+          lineHeight: 'var(--h1-line-height)',
+          fontWeight: 'var(--h1-font-weight)',
+        }}
+      >
+        Faculty and Mentors
+      </h1>
+      {/* Subheading */}
+      <p
+        style={{
+          color: 'var(--para-color)',
+          fontSize: 'var(--p-size)',
+          lineHeight: 'var(--p-line-height)',
+          textAlign: 'center',
+          maxWidth: '900px',
+        }}
+      >
+        Learn from leading academicians in the field of Artificial Intelligence and Machine Learning and several experienced industry practitioners from top organisations.
+      </p>
+      {/* Carousel */}
+      <div className="w-full max-w-4xl">
+        <Splide
+          options={{
+            type: 'loop',
+            perPage: 3,
+            perMove: 1,
+            gap: '1rem',
+            breakpoints: {
+              1024: { perPage: 2 },
+              768: { perPage: 1 },
+            },
+            pagination: false,
+            arrows: true,
+          }}
+          aria-label="Faculty and Mentors Carousel"
+        >
+          {cardData.map((card, index) => (
+            <SplideSlide key={index}>
+              <div
+                style={{
+                  backgroundColor: 'white',
+                  borderRadius: '8px',
+                  padding: '20px',
+                  boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+                }}
+                className="min-h-60 flex flex-col justify-between"
+              >
+                {/* Card Header */}
+                <div className="flex justify-start items-center gap-7 mb-4">
+                  <Image src={card.image} alt={card.title} width={56} height={56} className="object-cover" />
+                  <h3
+                    style={{
+                      fontSize: 'var(--h5-size)',
+                      fontWeight: 'var(--h5-font-weight)',
+                    }}
+                  >
+                    {card.title}
+                  </h3>
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="flex justify-between w-full max-w-4xl mt-4">
-            <button
-              onClick={handlePrev}
-              className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600"
-              disabled={currentIndex === 0}
-            >
-              Previous
-            </button>
-            <button
-              onClick={handleNext}
-              className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600"
-              disabled={currentIndex >= cardData.length - 3}
-            >
-              Next
-            </button>
-          </div>
-        </div>
+                {/* Description */}
+                <div className="flex flex-col justify-start items-start mb-auto">
+                  <p
+                    style={{
+                      color: 'var(--para-color)',
+                      fontSize: 'var(--p-small-size)',
+                      lineHeight: 'var(--p-small-line-height)',
+                    }}
+                  >
+                    {card.description}
+                  </p>
+                </div>
+                {/* Company Logo */}
+                <div className="relative mt-4">
+                  <Image
+                    src={card.image2}
+                    alt="Company Logo"
+                    width={100}
+                    height={40}
+                    className="mentors-description-images absolute bottom-0 left-0 right-0"
+                  />
+                </div>
+              </div>
+            </SplideSlide>
+          ))}
+        </Splide>
       </div>
-
-    </>
-
+    </div>
   );
 }
+

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 
 export default function About() {
     const curriculum = [
@@ -30,46 +29,128 @@ export default function About() {
     const cardPara = ["Average salary hike", "Hiring Companies"];
 
     return (
-        <>
-            <div className="learning-ai-about-main flex flex-col justify-center items-center gap-14 mt-16">
-                <div className="flex flex-col gap-2 justify-center items-center">
-                    <h1 className="text-[32px] leading-[40px] font-bold">Get a 360° understanding of AI and Machine Learning</h1>
-                    <p className="text-[#444] text-[15px]">Masterclasses delivered by distinguished UT Austin faculty</p>
-                </div>
-                
-                <div className="flex justify-center items-center gap-20">
-                    {curriculum.map((value, index) => (
-                        <div key={index} className="learning-ai-about-subpart flex flex-col justify-start items-start gap-10">
-                            {value.head.map((headItem, ind) => (
-                                <div className="flex justify-center items-center gap-2" key={ind}>
-                                    <div
-                                        style={{ backgroundColor: value.background[ind] }}
-                                        className="w-[50px] h-[50px] rounded-full p-2 flex items-center justify-center"
-                                    >
-                                        <img src={value.img[ind]} alt={headItem} className="w-full h-full object-contain rounded-full" />
-                                    </div>
-                                    <h5 className="font-[600] text-[16px] text-[#444] capitalize">{headItem}</h5>
+        <div className="learning-ai-about-main flex flex-col justify-center items-center gap-14 mt-16">
+            {/* Section Header */}
+            <div className="flex flex-col gap-2 justify-center items-center">
+                <h2
+                    style={{
+                        fontSize: 'var(--h2-size)',
+                        lineHeight: 'var(--h2-line-height)',
+                        fontWeight: 'var(--h2-font-weight)'
+                    }}
+                >
+                    Get a 360° understanding of AI and Machine Learning
+                </h2>
+                <p
+                    style={{
+                        color: 'var(--para-color)',
+                        fontSize: 'var(--p-small-size)',
+                        lineHeight: 'var(--p-small-line-height)'
+                    }}
+                >
+                    Masterclasses delivered by distinguished UT Austin faculty
+                </p>
+            </div>
+
+            {/* Curriculum Section */}
+            <div className="flex justify-center items-center gap-20">
+                {curriculum.map((value, index) => (
+                    <div key={index} className="learning-ai-about-subpart flex flex-col justify-start items-start gap-10">
+                        {value.head.map((headItem, ind) => (
+                            <div className="flex justify-center items-center gap-2" key={ind}>
+                                <div
+                                    style={{
+                                        backgroundColor: value.background[ind]
+                                    }}
+                                    className="w-[50px] h-[50px] rounded-full p-2 flex items-center justify-center"
+                                >
+                                    <img
+                                        src={value.img[ind]}
+                                        alt={headItem}
+                                        className="w-full h-full object-contain rounded-full"
+                                    />
                                 </div>
-                            ))}
-                        </div>
-                    ))}
-                </div>
-                
-                <button className="text-[18px] capitalize bg-[#068932] w-fit text-white leading-6 p-[14px_22px] rounded">Download Curriculum</button>
-                
-                <div className="flex flex-col justify-center items-center gap-6">
-                    <h1 className="text-[32px] leading-[40px] font-bold">Thousands of careers empowered</h1>
-                    <div className="learning-ai-about-card-cont flex justify-center gap-16">
-                        {cardHead.map((value, index) => (
-                            <div className="flex flex-col gap-2 border-[#1fa92f] border-l-4 bg-white rounded shadow-lg shadow-gray-400 pl-2 py-2 pr-28" key={index}>
-                                <h1 className="font-[700] text-[16px]">{value}</h1>
-                                <p>{cardPara[index]}</p>
+                                <h6
+                                    style={{
+                                        fontSize: 'var(--h6-size)',
+                                        fontWeight: 'var(--h6-font-weight)',
+                                        color: 'var(--para-color)'
+                                    }}
+                                    className="capitalize"
+                                >
+                                    {headItem}
+                                </h6>
                             </div>
                         ))}
                     </div>
-                    <p className="text-[#444] text-[15px]">*Across Great Learning programs</p>
-                </div>
+                ))}
             </div>
-        </>
+
+            {/* Download Button */}
+            <button
+                style={{
+                    fontSize: 'var(--h6-size)',
+                    backgroundColor: 'var(--primary-color)',
+                    color: 'white',
+                    padding: '14px 22px',
+                    borderRadius: '8px'
+                }}
+            >
+                Download Curriculum
+            </button>
+
+            {/* Career Stats Section */}
+            <div className="flex flex-col justify-center items-center gap-6">
+                <h1
+                    style={{
+                        fontSize: 'var(--h1-size)',
+                        lineHeight: 'var(--h1-line-height)',
+                        fontWeight: 'var(--h1-font-weight)'
+                    }}
+                >
+                    Thousands of careers empowered
+                </h1>
+                <div className="learning-ai-about-card-cont flex justify-center gap-16">
+                    {cardHead.map((value, index) => (
+                        <div
+                            style={{
+                                borderLeft: `4px solid var(--primary-color)`,
+                                backgroundColor: 'white',
+                                padding: '8px 16px',
+                                boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)'
+                            }}
+                            className="flex flex-col gap-2 rounded"
+                            key={index}
+                        >
+                            <h1
+                                style={{
+                                    fontSize: 'var(--h6-size)',
+                                    fontWeight: 'var(--h6-font-weight)'
+                                }}
+                            >
+                                {value}
+                            </h1>
+                            <p
+                                style={{
+                                    fontSize: 'var(--p-size)',
+                                    lineHeight: 'var(--p-line-height)'
+                                }}
+                            >
+                                {cardPara[index]}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+                <p
+                    style={{
+                        color: 'var(--para-color)',
+                        fontSize: 'var(--p-small-size)',
+                        lineHeight: 'var(--p-small-line-height)'
+                    }}
+                >
+                    *Across Great Learning programs
+                </p>
+            </div>
+        </div>
     );
 }
